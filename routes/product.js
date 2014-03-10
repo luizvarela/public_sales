@@ -1,11 +1,9 @@
-var Product = require('.models/product');
+var Product = require('../models/product.js');
 
-module.exports = function (app) {
-	app.get('api/products'. function(req, res){
-		Product.find(function(err, products) {
-			if (err)
-				res.send(err)
-			res.json(products);
-		});
+exports.list = function(req, res){
+  Product.find(function(err, products) {
+		if (err)
+			res.send(err)
+		res.json(products);
 	});
-}
+};
