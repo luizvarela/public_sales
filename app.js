@@ -1,17 +1,15 @@
-
-/**
- * Module dependencies.
- */
-
-var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
-var path = require('path');
+var express  = require('express');
+var routes   = require('./routes');
+var user     = require('./routes/user');
+var http     = require('http');
+var path     = require('path');
+var mongoose = require('mongoose');
+var database = require('./config/database'); 
 
 var app = express();
 
-// all environments
+mongoose.connect(database.url); 
+
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -23,7 +21,6 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
