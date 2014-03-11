@@ -23,7 +23,13 @@ exports.list = function(req, res){
 };
 
 exports.find = function(req, res){
-
+	product = Product.findById(req.params.id, function (err, product) {
+	  if (err) {
+	  	return console.log(err);
+	  } else {
+	    return res.send(product);
+	  }
+	});
 }
 
 exports.delete = function(req, res){

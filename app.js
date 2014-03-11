@@ -29,6 +29,8 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/products', product.list);
 app.post('/products', product.create);
+app.get('/product/:id', product.find);
+
 app.get('/teste', product.teste);
 app.post('/tipos_de_pagamento', tipos_de_pagamento.list)
 
