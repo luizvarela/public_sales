@@ -7,3 +7,15 @@ exports.list = function(req, res){
 		res.json(products);
 	});
 };
+
+exports.teste = function(req, res) {
+	var record = new Product({name:'Nome',description:'Descricao'});
+	record.save(function(err){
+		if(err){
+			console.log(err);
+			res.status(500).json({status: 'fail'});
+		} else {
+			res.json({status: 'success'});
+		}
+	});
+};
