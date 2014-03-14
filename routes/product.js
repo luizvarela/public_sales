@@ -2,16 +2,24 @@ var Product = require('../models/product.js');
 
 exports.create = function(req, res){
 	product = new Product({
-    name: req.body.name,
-    description: req.body.description,
+    nome          : req.body.nome,
+	valor         : req.body.valor,
+	descricao     : req.body.descricao,
+	tipo_pagamento: req.body.tipo_pagamento,
+	categoria     : req.body.categoria,
+	valor_inicial : req.body.valor_inicial,
+	valor_final   : req.body.valor_final,
+	tempo_leilao  : req.body.tempo_leilao,
+	data_inicial  : req.body.data_inicial
+
   });
   product.save(function (err) {
     if (err)
       res.send(err);
     else
-    	console.log("created"); 
+    	console.log("created");
   });
- 	res.send(product);
+ 	res.json(product);
 }
 
 exports.list = function(req, res){

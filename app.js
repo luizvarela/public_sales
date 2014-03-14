@@ -1,15 +1,16 @@
 var express  = require('express');
 var routes   = require('./routes');
-var product     = require('./routes/product');
 var tipos_de_pagamento = require('./routes/tipo_de_pagamento');
+var product  = require('./routes/product');
+var service  = require('./routes/service');
 var http     = require('http');
 var path     = require('path');
 var mongoose = require('mongoose');
-var database = require('./config/database'); 
+var database = require('./config/database');
 
 var app = express();
 
-mongoose.connect(database.url); 
+mongoose.connect(database.url);
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -27,9 +28,13 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/products', product.list);
-app.post('/products', product.create);
+
+app.get('/products',    product.list);
+app.post('/products',   product.create);
 app.get('/product/:id', product.find);
+
+app.get('/services',    service.list);
+app.post('/services',   service.create);
 
 app.get('/teste', product.teste);
 app.post('/tipos_de_pagamento', tipos_de_pagamento.list)
