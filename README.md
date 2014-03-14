@@ -14,7 +14,7 @@ usar o postman(extensão do google chrome para fazer inserção de dados) utiliz
       http://luizvarela666-public_sales.nodejitsu.com/products POST
       http://luizvarela666-public_sales.nodejitsu.com/products POST
       
-atributos de Produto:
+Atributos de Produto:
       
       nome          
       valor         
@@ -25,3 +25,14 @@ atributos de Produto:
       valor_final   
       tempo_leilao  
       data_inicial  
+
+Atributos do Serviço:
+
+      nome          
+      valor         
+      descricao     
+      tipo_pagamento
+      categoria     
+      inicio_servico
+      duracao_dias  
+      periodo       
