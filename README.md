@@ -11,5 +11,17 @@ usar o postman(extensão do google chrome para fazer inserção de dados) utiliz
       http://luizvarela666-public_sales.nodejitsu.com/services GET
   
 
-	  http://luizvarela666-public_sales.nodejitsu.com/products POST
-	  http://luizvarela666-public_sales.nodejitsu.com/products POST
+      http://luizvarela666-public_sales.nodejitsu.com/products POST
+      http://luizvarela666-public_sales.nodejitsu.com/products POST
+      
+atributos de Produto:
+      
+      nome          
+      valor         
+      descricao     
+      tipo_pagamento
+      categoria     
+      valor_inicial 
+      valor_final   
+      tempo_leilao  
+      data_inicial  
