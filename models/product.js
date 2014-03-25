@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 module.exports = mongoose.model('Product', {
 	nome           : String,
@@ -10,4 +11,5 @@ module.exports = mongoose.model('Product', {
 	valor_final    : Number,
 	tempo_leilao   : Date, 
 	data_inicial   : Date,
+	vendedor       : Schema.Types.Mixed,
 });

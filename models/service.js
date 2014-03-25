@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 module.exports = mongoose.model('Service', {
-	nome           : String,
-	valor          : Number,
-	descricao      : String,
-	tipo_pagamento : Number,
 	categoria      : String,
+	valor          : Number,
+	nome           : String,
+	tipo_pagamento : Number,
 	inicio_servico : Date,
 	duracao_dias   : Number,
-	periodo        : Number,
+	periodo        : String,
+	vendedor       : Schema.Types.Mixed,
 });
