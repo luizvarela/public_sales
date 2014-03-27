@@ -3,6 +3,9 @@ var routes   = require('./routes');
 var tipos_de_pagamento = require('./routes/tipo_de_pagamento');
 var product  = require('./routes/product');
 var service  = require('./routes/service');
+var usuario  = require('./routes/usuario');
+var lance    = require('./routes/lance');
+var compra   = require('./routes/compra');
 var http     = require('http');
 var path     = require('path');
 var mongoose = require('mongoose');
@@ -32,12 +35,17 @@ app.get('/', routes.index);
 app.get('/products',    product.list);
 app.post('/products',   product.create);
 app.get('/product/:id', product.find);
+app.post('/lance', lance.incluir);
+app.get('/teste', product.teste);
 
 app.get('/services',    service.list);
 app.post('/services',   service.create);
 
-app.get('/teste', product.teste);
-app.post('/tipos_de_pagamento', tipos_de_pagamento.list)
+app.get('/tipos_de_pagamento', tipos_de_pagamento.list);
+
+app.post('/usuario', usuario.incluir);
+
+app.post('/compra', compra.incluir);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
