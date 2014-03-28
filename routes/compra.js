@@ -2,7 +2,8 @@ var Compra = require('../models/compra.js');
 
 exports.create = function(req, res){
   
-  var compra = JSON.parse(req.params('compra'))
+  var compra = JSON.parse(req.params('compra'));
+  var lance = JSON.parse(req.params('lance'));
   
 
   compra = new Compra({
@@ -11,7 +12,7 @@ exports.create = function(req, res){
   valor          : compra.valor,
   tipo_pagamento : compra.tipo_pagamento,
   tipo_entrega   : compra.tipo_entrega,
-  usuario        : compra.usuario,
+  usuario        : lance.usuario,
   item_de_venda  : compra.item_de_venda,
 
   });
@@ -29,7 +30,7 @@ exports.list = function(req, res){
   Compra.find({lance.usuario},function(err, compra) {
     if (err)
       res.send(err)
-    if(compra.usuario == usuario.session)
+    if(compra.usuario)
     res.json(compras);
   });
 };
